@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./sanity/schemaTypes";
+import { schema } from "./sanity/schemaTypes";
 import { structure } from "./sanity/structure";
 import { projectId, dataset, apiVersion } from "./lib/sanity";
 
@@ -12,7 +12,7 @@ export default defineConfig({
   apiVersion,
   title: "Vyssilevel CMS",
   schema: {
-    types: schemaTypes,
+    types: schema.types,
   },
   plugins: [
     structureTool({ structure }),
