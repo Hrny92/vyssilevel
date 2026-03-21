@@ -67,12 +67,11 @@ export const podcast = defineType({
   preview: {
     select: {
       nazev: "nazev",
-      youtubeId: "youtubeId",
       host: "host",
       datumVydani: "datumVydani",
       zverejneno: "zverejneno",
     },
-    prepare({ nazev, youtubeId, host, datumVydani, zverejneno }) {
+    prepare({ nazev, host, datumVydani, zverejneno }) {
       const datum = datumVydani
         ? new Date(datumVydani).toLocaleDateString("cs-CZ", {
             day: "numeric",
@@ -83,9 +82,6 @@ export const podcast = defineType({
       return {
         title: nazev || "Bez názvu",
         subtitle: `${datum}${host ? ` · ${host}` : ""}${!zverejneno ? " · ❌ Skryto" : ""}`,
-        media: youtubeId
-          ? { _type: "image", asset: { url: `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` } }
-          : undefined,
       };
     },
   },
