@@ -4,7 +4,7 @@ import { kontaktEmailHtml, kontaktEmailSubject } from "@/lib/email";
 
 const TO_EMAIL   = "lukas.hrnci@bidli.cz";
 // Použij verified doménu z Resend dashboardu, nebo "onboarding@resend.dev" pro testování
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "Bidli Web <noreply@vyssilevel.cz>";
 
 export async function POST(request: Request) {
   try {
