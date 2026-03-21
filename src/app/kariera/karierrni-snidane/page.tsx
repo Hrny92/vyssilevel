@@ -7,7 +7,7 @@ import { getKarierniSnidane } from "@/lib/sanity";
 import KarierniSnidaneForm from "@/components/KarierniSnidaneForm";
 import Hero from "@/components/Hero";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Kariérní snídaně",
