@@ -12,6 +12,7 @@ import Hero from "@/components/Hero";
 import ContactButton from "@/components/ContactButton";
 import CtaBanner from "@/components/CtaBanner";
 import StatsCounter from "@/components/StatsCounter";
+import { getBidliStats } from "@/lib/sanity";
 
 export const metadata: Metadata = pageMeta({
   title: "O Bidli",
@@ -99,7 +100,9 @@ const departments = [
   },
 ];
 
-export default function OBidli() {
+export default async function OBidli() {
+  const stats = await getBidliStats();
+
   return (
     <>
       <StructuredData data={breadcrumbJsonLd([
@@ -191,7 +194,7 @@ export default function OBidli() {
         </div>
       </section>
 
-      <StatsCounter />
+      <StatsCounter stats={stats} />
 
       {/* TÝM — vedení */}
       <section className="py-20 md:py-28 bg-white">

@@ -84,3 +84,30 @@ export interface PodcastEpizoda {
   host?: string;
   datumVydani: string;
 }
+
+// ─── Bidli v číslech ───────────────────────────────────────────────────────
+
+export interface BidliStat {
+  num: number;
+  decimals?: number;
+  suffix?: string;
+  label: string;
+  sublabel?: string;
+}
+
+/** Hardcoded fallback — použije se když Sanity dokument ještě neexistuje */
+export const DEFAULT_STATS: BidliStat[] = [
+  { num: 624,   decimals: 0, suffix: "",       label: "specialistů",           sublabel: "připravených vám pomoci"   },
+  { num: 105.5, decimals: 1, suffix: " mld.",  label: "Kč v úvěrech",          sublabel: "od roku 2003"              },
+  { num: 12310, decimals: 0, suffix: "",       label: "prodaných nemovitostí",  sublabel: "od roku 2010"              },
+  { num: 22,    decimals: 0, suffix: " let",   label: "na trhu",               sublabel: "stabilní a stále rostoucí" },
+];
+
+export async function getBidliStats(): Promise<BidliStat[]> {
+  if (!client) return DEFAULT_STATS;
+  const doc = await client.fetch<{ stats?: BidliStat[] } | null>(
+    `*[_type == "bidliStats"][0]{ stats }`
+  );
+  if (!doc?.stats?.length) return DEFAULT_STATS;
+  return doc.stats;
+}

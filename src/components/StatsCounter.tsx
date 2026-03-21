@@ -1,21 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-interface Stat {
-  num: number;
-  decimals?: number;
-  suffix: string;
-  label: string;
-  sublabel: string;
-}
-
-const stats: Stat[] = [
-  { num: 624,    suffix: "",      label: "specialistů",           sublabel: "připravených vám pomoci"    },
-  { num: 105.5,  decimals: 1, suffix: " mld.", label: "Kč v úvěrech",  sublabel: "od roku 2003"               },
-  { num: 12310,  suffix: "",      label: "prodaných nemovitostí", sublabel: "od roku 2010"               },
-  { num: 22,     suffix: " let",  label: "na trhu",               sublabel: "stabilní a stále rostoucí"  },
-];
+import type { BidliStat } from "@/lib/sanity";
 
 function useCountUp(target: number, decimals = 0, duration = 1800, started: boolean) {
   const [value, setValue] = useState(0);
@@ -37,11 +23,12 @@ function useCountUp(target: number, decimals = 0, duration = 1800, started: bool
   return value;
 }
 
-function StatItem({ stat, started, index }: { stat: Stat; started: boolean; index: number }) {
-  const count = useCountUp(stat.num, stat.decimals, 1800 + index * 100, started);
+function StatItem({ stat, started, index }: { stat: BidliStat; started: boolean; index: number }) {
+  const decimals = stat.decimals ?? 0;
+  const count = useCountUp(stat.num, decimals, 1800 + index * 100, started);
 
-  const formatted = stat.decimals
-    ? count.toFixed(stat.decimals).replace(".", ",")
+  const formatted = decimals > 0
+    ? count.toFixed(decimals).replace(".", ",")
     : count.toLocaleString("cs-CZ");
 
   return (
@@ -78,12 +65,16 @@ function StatItem({ stat, started, index }: { stat: Stat; started: boolean; inde
       </div>
 
       <p className="text-white font-bold text-sm">{stat.label}</p>
-      <p className="text-white/40 text-xs mt-1">{stat.sublabel}</p>
+      {stat.sublabel && <p className="text-white/40 text-xs mt-1">{stat.sublabel}</p>}
     </div>
   );
 }
 
-export default function StatsCounter() {
+interface StatsCounterProps {
+  stats: BidliStat[];
+}
+
+export default function StatsCounter({ stats }: StatsCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [started, setStarted] = useState(false);
 
@@ -98,6 +89,11 @@ export default function StatsCounter() {
     return () => observer.disconnect();
   }, []);
 
+  // Dekorativní číslo v pozadí — vezme suffix první stat nebo "+"
+  const bgNumber = stats[0]
+    ? `${Math.round(stats[0].num)}${stats[0].suffix ?? ""}+`
+    : "22+";
+
   return (
     <section className="py-20 md:py-28 bg-[#142f4c] relative overflow-hidden">
       <div className="absolute inset-0 svg-bg-primary opacity-5" />
@@ -107,7 +103,7 @@ export default function StatsCounter() {
         className="absolute -right-8 top-1/2 -translate-y-1/2 text-[220px] font-black text-white/[0.025] leading-none select-none pointer-events-none hidden lg:block"
         aria-hidden
       >
-        22+
+        {bgNumber}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,7 +116,10 @@ export default function StatsCounter() {
         {/* Horní linka */}
         <div className="h-px bg-white/10 mb-0" />
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-white/10">
+        <div
+          ref={ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-white/10"
+        >
           {stats.map((s, i) => (
             <StatItem key={i} stat={s} started={started} index={i} />
           ))}
