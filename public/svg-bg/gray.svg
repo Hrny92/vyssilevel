@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1881 806">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: url(#Nepojmenovaný_přechod_69);
+      }
+
+      .st2 {
+        fill: url(#Nepojmenovaný_přechod_37);
+      }
+
+      .st3 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" y="0" width="1880.7" height="806" rx="40" ry="40"/>
+    </clipPath>
+    <linearGradient id="Nepojmenovaný_přechod_69" data-name="Nepojmenovaný přechod 69" x1="458.5" y1="517.1" x2="1905" y2="180.6" gradientTransform="translate(0 808) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#c6c6c6"/>
+    </linearGradient>
+    <linearGradient id="Nepojmenovaný_přechod_37" data-name="Nepojmenovaný přechod 37" x1="1254.7" y1="820.9" x2="118" y2="1133" gradientTransform="translate(0 808) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#c6c6c6"/>
+    </linearGradient>
+  </defs>
+  <g class="st3">
+    <g>
+      <rect class="st1" y="0" width="1880.7" height="806" rx="40" ry="40"/>
+      <path class="st2" d="M-114,444c293.6,298.6,769.6,298.6,1063.2,0l.6-.6c293.6-298.9,293.6-783.7,0-1082.6l-532-541.8L-646-98.1-114,444Z"/>
+    </g>
+  </g>
+</svg>
