@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCoffee, faUsers, faComments } from "@fortawesome/free-solid-svg-icons";
-import { BidliPiktogram } from "@/components/BidliLogo";
 import { getKarierniSnidane } from "@/lib/sanity";
-import KarierniSnidaneForm from "@/components/KarierniSnidaneForm";
 import Hero from "@/components/Hero";
+import TerminySelectSection from "@/components/TerminySelectSection";
 
 export const revalidate = 0;
 
@@ -118,88 +117,8 @@ export default async function KarierniSnidane() {
           </div>
         </div>
 
-        {/* FORMULÁŘ — plynule navazuje */}
-        <div id="prihlasit" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            {/* LEFT — termíny + popis */}
-            <div>
-              <div className="divider-sky" />
-              <h2 className="text-3xl md:text-4xl font-black text-[#142f4c] mb-6">
-                Vyber si termín a místo<br />a přijď na snídani.
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Rezervuj si místo jednoduše přes formulář. Brzy se ti ozveme s potvrzením a informacemi
-                o místě konání. Kapacity jsou omezené, proto neváhej.
-              </p>
-
-              {terminy.length > 0 ? (
-                <div className="space-y-3">
-                  <p className="text-xs font-bold text-[#3fb1e1] uppercase tracking-widest mb-5">
-                    Aktuální termíny
-                  </p>
-                  {terminy.map((t) => {
-                    const d = new Date(t.datum);
-                    const day = d.getDate();
-                    const monthName = d.toLocaleDateString("cs-CZ", { month: "long" });
-                    const year = d.getFullYear();
-                    const time = t.datum.includes("T")
-                      ? d.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" })
-                      : null;
-                    return (
-                      <div key={t._id} className="flex items-stretch gap-0 rounded-2xl overflow-hidden border border-gray-100">
-                        {/* Datum — levý panel */}
-                        <div className="bg-[#142f4c] flex flex-col items-center justify-center px-5 py-4 min-w-[80px] flex-shrink-0">
-                          <span className="text-[#3fb1e1] font-black text-3xl leading-none">{day}</span>
-                          <span className="text-white/70 text-xs font-medium mt-0.5 capitalize">{monthName}</span>
-                          <span className="text-white/40 text-xs">{year}</span>
-                        </div>
-                        {/* Info — pravý panel */}
-                        <div className="flex items-center justify-between flex-1 bg-white px-5 py-4 gap-4">
-                          <div>
-                            <p className="font-black text-[#142f4c] text-base">{t.mesto}</p>
-                            <div className="flex items-center gap-3 mt-1">
-                              {time && (
-                                <span className="text-xs text-gray-400">{time}</span>
-                              )}
-                              {t.kapacita && (
-                                <span className="text-xs text-gray-400 flex items-center gap-1">
-                                  <span className="w-1 h-1 rounded-full bg-gray-300 inline-block" />
-                                  {t.kapacita} míst
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="flex items-start gap-4 p-5 bg-[#142f4c]/5 rounded-2xl border border-[#142f4c]/10">
-                  <div className="w-10 h-10 rounded-xl bg-[#3fb1e1]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-[#3fb1e1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-[#142f4c] text-sm leading-relaxed">
-                    <strong className="block mb-1">Termíny brzy vypíšeme</strong>
-                    Sleduj nás na sociálních sítích nebo nás kontaktuj přes formulář — dáme ti vědět jako prvním.
-                  </p>
-                </div>
-              )}
-
-              
-            </div>
-
-            {/* RIGHT — formulář */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#142f4c] mb-6">Přihláška na kariérní snídani</h3>
-              <KarierniSnidaneForm terminy={terminy} />
-            </div>
-
-          </div>
-        </div>
+        {/* TERMÍNY + FORMULÁŘ */}
+        <TerminySelectSection terminy={terminy} />
 
       </section>
     </>

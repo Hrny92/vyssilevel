@@ -30,6 +30,7 @@ export const karierniSnidane = defineType({
           { title: "Plzeň", value: "Plzeň" },
           { title: "Hradec Králové", value: "Hradec Králové" },
           { title: "České Budějovice", value: "České Budějovice" },
+          { title: "Pardubice", value: "Pardubice" },
         ],
       },
     }),

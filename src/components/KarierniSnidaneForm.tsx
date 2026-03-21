@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,24 +13,31 @@ interface Termin {
 
 interface Props {
   terminy: Termin[];
+  preselectedTermin?: string;
 }
 
-function formatDatum(datum: string): string {
+export function formatDatumTermin(datum: string): string {
   const d = new Date(datum);
-  const day = d.getDate().toString().padStart(2, "0");
-  const month = (d.getMonth() + 1).toString().padStart(2, "0");
-  const year = d.getFullYear();
+  const day = d.toLocaleDateString("cs-CZ", { day: "2-digit", timeZone: "Europe/Prague" });
+  const month = d.toLocaleDateString("cs-CZ", { month: "2-digit", timeZone: "Europe/Prague" });
+  const year = d.toLocaleDateString("cs-CZ", { year: "numeric", timeZone: "Europe/Prague" });
   return `${day}. ${month}. ${year}`;
 }
 
-export default function KarierniSnidaneForm({ terminy }: Props) {
+export default function KarierniSnidaneForm({ terminy, preselectedTermin }: Props) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     jmeno: "",
     telefon: "",
-    termin: "",
+    termin: preselectedTermin ?? "",
     souhlas: false,
   });
+
+  useEffect(() => {
+    if (preselectedTermin !== undefined) {
+      setFormData((prev) => ({ ...prev, termin: preselectedTermin }));
+    }
+  }, [preselectedTermin]);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
