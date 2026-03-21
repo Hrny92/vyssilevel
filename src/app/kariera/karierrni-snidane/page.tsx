@@ -135,35 +135,61 @@ export default async function KarierniSnidane() {
 
               {terminy.length > 0 ? (
                 <div className="space-y-3">
-                  <p className="text-sm font-semibold text-[#142f4c] uppercase tracking-wider mb-4">
+                  <p className="text-xs font-bold text-[#3fb1e1] uppercase tracking-widest mb-5">
                     Aktuální termíny
                   </p>
                   {terminy.map((t) => {
                     const d = new Date(t.datum);
-                    const day = d.getDate().toString().padStart(2, "0");
-                    const month = (d.getMonth() + 1).toString().padStart(2, "0");
+                    const day = d.getDate();
+                    const monthName = d.toLocaleDateString("cs-CZ", { month: "long" });
                     const year = d.getFullYear();
+                    const time = t.datum.includes("T")
+                      ? d.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" })
+                      : null;
                     return (
-                      <div key={t._id} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
-                        <div className="w-12 h-12 bg-[#3fb1e1] rounded-xl flex flex-col items-center justify-center flex-shrink-0">
-                          <span className="text-white font-black text-lg leading-none">{day}</span>
-                          <span className="text-white/80 text-xs">{month}/{year}</span>
+                      <div key={t._id} className="group flex items-stretch gap-0 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#3fb1e1]/40 hover:shadow-md transition-all duration-200">
+                        {/* Datum — levý panel */}
+                        <div className="bg-[#142f4c] flex flex-col items-center justify-center px-5 py-4 min-w-[80px] flex-shrink-0">
+                          <span className="text-[#3fb1e1] font-black text-3xl leading-none">{day}</span>
+                          <span className="text-white/70 text-xs font-medium mt-0.5 capitalize">{monthName}</span>
+                          <span className="text-white/40 text-xs">{year}</span>
                         </div>
-                        <div>
-                          <p className="font-bold text-[#142f4c]">{t.mesto}</p>
-                          {t.kapacita && (
-                            <p className="text-xs text-gray-400">Kapacita: {t.kapacita} míst</p>
-                          )}
+                        {/* Info — pravý panel */}
+                        <div className="flex items-center justify-between flex-1 bg-white px-5 py-4 gap-4">
+                          <div>
+                            <p className="font-black text-[#142f4c] text-base">{t.mesto}</p>
+                            <div className="flex items-center gap-3 mt-1">
+                              {time && (
+                                <span className="text-xs text-gray-400">{time}</span>
+                              )}
+                              {t.kapacita && (
+                                <span className="text-xs text-gray-400 flex items-center gap-1">
+                                  <span className="w-1 h-1 rounded-full bg-gray-300 inline-block" />
+                                  {t.kapacita} míst
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <div className="w-8 h-8 rounded-full bg-[#3fb1e1]/10 group-hover:bg-[#3fb1e1] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+                            <svg className="w-3.5 h-3.5 text-[#3fb1e1] group-hover:text-white transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     );
                   })}
                 </div>
               ) : (
-                <div className="p-6 bg-[#3fb1e1]/10 rounded-xl border border-[#3fb1e1]/20">
-                  <p className="text-[#142f4c] font-medium">
-                    Momentálně nejsou vypsány žádné termíny. Sleduj nás na sociálních sítích nebo
-                    nás kontaktuj přes formulář níže — dáme ti vědět jako prvním.
+                <div className="flex items-start gap-4 p-5 bg-[#142f4c]/5 rounded-2xl border border-[#142f4c]/10">
+                  <div className="w-10 h-10 rounded-xl bg-[#3fb1e1]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-4 h-4 text-[#3fb1e1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="text-[#142f4c] text-sm leading-relaxed">
+                    <strong className="block mb-1">Termíny brzy vypíšeme</strong>
+                    Sleduj nás na sociálních sítích nebo nás kontaktuj přes formulář — dáme ti vědět jako prvním.
                   </p>
                 </div>
               )}
