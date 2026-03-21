@@ -14,6 +14,8 @@ import CtaBanner from "@/components/CtaBanner";
 import StatsCounter from "@/components/StatsCounter";
 import { getBidliStats } from "@/lib/sanity";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = pageMeta({
   title: "O Bidli",
   description: "Silný příběh, stabilní zázemí, neomezené možnosti. Přes 20 let na trhu, 30+ poboček po celé České republice. Finance, reality, energetika a pojišťovnictví pod jednou střechou.",
