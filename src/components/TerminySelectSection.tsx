@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import KarierniSnidaneForm, { formatDatumTermin } from "./KarierniSnidaneForm";
-import { BidliPiktogram } from "./BidliLogo";
 
 interface Termin {
   _id: string;
@@ -55,7 +54,7 @@ export default function TerminySelectSection({ terminy }: Props) {
               <p className="text-xs font-bold text-[#3fb1e1] uppercase tracking-widest mb-5">
                 Aktuální termíny
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {terminy.map((t) => {
                   const d = new Date(t.datum);
                   const day = d.toLocaleDateString("cs-CZ", { day: "numeric", timeZone: "Europe/Prague" });
@@ -126,10 +125,6 @@ export default function TerminySelectSection({ terminy }: Props) {
             </div>
           )}
 
-          <div className="mt-12 flex gap-6 opacity-10">
-            <BidliPiktogram className="w-24 h-24" color="#142f4c" />
-            <BidliPiktogram className="w-16 h-16 self-end" color="#3fb1e1" />
-          </div>
         </div>
 
         {/* RIGHT — formulář */}
