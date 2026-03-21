@@ -64,6 +64,18 @@ export async function getPodcasty(): Promise<PodcastEpizoda[]> {
   );
 }
 
+// Extrahuje YouTube ID z celého linku nebo z čistého ID
+export function extractYoutubeId(input: string): string {
+  if (!input) return "";
+  const watchMatch = input.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (watchMatch) return watchMatch[1];
+  const shortMatch = input.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (shortMatch) return shortMatch[1];
+  const embedMatch = input.match(/embed\/([a-zA-Z0-9_-]{11})/);
+  if (embedMatch) return embedMatch[1];
+  return input; // předpokládá čisté ID
+}
+
 export interface PodcastEpizoda {
   _id: string;
   youtubeId: string;

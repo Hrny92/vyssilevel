@@ -7,13 +7,17 @@ export const podcast = defineType({
   fields: [
     defineField({
       name: "youtubeId",
-      title: "YouTube Video ID",
+      title: "YouTube odkaz nebo ID",
       type: "string",
-      description: "Část URL za ?v= nebo youtu.be/. Např. pro youtube.com/watch?v=abc123 zadej abc123",
-      validation: (Rule) => Rule.required().regex(/^[a-zA-Z0-9_-]{11}$/, {
-        name: "YouTube ID",
-        invert: false,
-      }).error("YouTube ID musí mít přesně 11 znaků (písmena, číslice, - nebo _)"),
+      description: "Vlož celý link videa (např. https://www.youtube.com/watch?v=abc123) nebo jen ID (abc123)",
+      validation: (Rule) => Rule.required().custom((value) => {
+        if (!value) return "Povinné pole";
+        const isId = /^[a-zA-Z0-9_-]{11}$/.test(value);
+        const isUrl = /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/.test(value)
+          || /youtu\.be\/([a-zA-Z0-9_-]{11})/.test(value)
+          || /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/.test(value);
+        return isId || isUrl ? true : "Zadej platný YouTube link nebo 11znakové ID";
+      }),
     }),
     defineField({
       name: "nazev",

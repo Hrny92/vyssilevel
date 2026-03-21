@@ -7,6 +7,8 @@ import { getKarierniSnidane } from "@/lib/sanity";
 import KarierniSnidaneForm from "@/components/KarierniSnidaneForm";
 import Hero from "@/components/Hero";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Kariérní snídaně",
   description: "Poznej nás u kávy. Upřímně, otevřeně, bez pozlátek. Přijď na kariérní snídani a potkej se s těmi, kdo tvoří Bidli.",

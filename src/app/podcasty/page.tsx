@@ -8,7 +8,9 @@ import {
 import { BidliPiktogram } from "@/components/BidliLogo";
 import Hero from "@/components/Hero";
 import ContactButton from "@/components/ContactButton";
-import { getPodcasty, type PodcastEpizoda } from "@/lib/sanity";
+import { getPodcasty, extractYoutubeId, type PodcastEpizoda } from "@/lib/sanity";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Podcasty",
@@ -39,9 +41,10 @@ function formatDatum(iso: string) {
 
 function EpizodaCard({ ep, index }: { ep: PodcastEpizoda; index: number }) {
   const num = String(index + 1).padStart(2, "0");
+  const videoId = extractYoutubeId(ep.youtubeId);
   return (
     <a
-      href={`https://www.youtube.com/watch?v=${ep.youtubeId}`}
+      href={`https://www.youtube.com/watch?v=${videoId}`}
       target="_blank"
       rel="noopener noreferrer"
       className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#3fb1e1]/40 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
@@ -49,7 +52,7 @@ function EpizodaCard({ ep, index }: { ep: PodcastEpizoda; index: number }) {
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden">
         <Image
-          src={`https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`}
+          src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
           alt={ep.nazev}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
