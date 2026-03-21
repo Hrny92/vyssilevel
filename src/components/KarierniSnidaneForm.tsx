@@ -126,8 +126,8 @@ export default function KarierniSnidaneForm({ terminy, preselectedTermin }: Prop
               <option value="" disabled>Momentálně nejsou vypsány žádné termíny</option>
             ) : (
               terminy.map((t) => (
-                <option key={t._id} value={`${formatDatum(t.datum)} — ${t.mesto}`}>
-                  {formatDatum(t.datum)} — {t.mesto}
+                <option key={t._id} value={`${formatDatumTermin(t.datum)} — ${t.mesto}`}>
+                  {formatDatumTermin(t.datum)} — {t.mesto}
                   {t.kapacita ? ` (kapacita: ${t.kapacita})` : ""}
                 </option>
               ))
