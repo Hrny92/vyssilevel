@@ -44,6 +44,54 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+/* --- Unified type scale (base layer — overridden by Tailwind utilities where needed) --- */
+@layer base {
+  /* H1 — Hero / page title */
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* ~40px → 72px */
+    font-weight: 900;
+    line-height: 1.05;
+    color: #142f4c;
+  }
+
+  /* H2 — Section heading */
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem); /* 28px → 36px */
+    font-weight: 900;
+    line-height: 1.2;
+    color: #142f4c;
+  }
+
+  /* H3 — Subsection / card heading */
+  h3 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    line-height: 1.3;
+    color: #142f4c;
+  }
+
+  /* Body paragraphs */
+  p {
+    font-size: 1rem; /* 16px */
+    line-height: 1.75;
+  }
+
+  /* Links inherit size from parent */
+  a {
+    font-size: inherit;
+  }
+
+  /* Lists */
+  ul, ol {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  li {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
 /* ===== BUTTONS ===== */
 .btn-primary {
   display: inline-flex;

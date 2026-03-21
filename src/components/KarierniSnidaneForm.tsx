@@ -146,7 +146,7 @@ export default function KarierniSnidaneForm({ terminy, preselectedTermin }: Prop
             />
             <span className="text-sm text-gray-500">
               Odesláním formuláře souhlasím se zpracováním{" "}
-              <a href="/o-webu" className="text-[#3fb1e1] hover:underline">osobních údajů</a>
+              <a href="https://www.bidli.cz/informace-o-webu/" target="_blank" rel="noopener noreferrer" className="text-[#3fb1e1] hover:underline">osobních údajů</a>
             </span>
           </label>
           {errors.souhlas && <p className="text-red-500 text-xs mt-1">{errors.souhlas}</p>}

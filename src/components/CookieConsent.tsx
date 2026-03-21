@@ -77,7 +77,7 @@ export default function CookieConsent() {
               <p className="text-white/60 text-sm leading-relaxed">
                 Používáme cookies pro personalizaci obsahu a analýzu návštěvnosti.
                 Více v{" "}
-                <Link href="/o-webu" className="text-[#3fb1e1] hover:underline">
+                <Link href="https://www.bidli.cz/informace-o-webu/" target="_blank" rel="noopener noreferrer" className="text-[#3fb1e1] hover:underline">
                   Zásadách používání souborů cookie
                 </Link>.
               </p>

@@ -124,7 +124,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-5">
             <Link
-              href="/o-webu"
+              href="https://www.bidli.cz/informace-o-webu/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white/40 hover:text-white/70 text-xs transition-colors"
             >
               Zásady zpracování osobních údajů
