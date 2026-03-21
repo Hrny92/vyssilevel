@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,10 +14,16 @@ import { getPodcasty, extractYoutubeId, type PodcastEpizoda } from "@/lib/sanity
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Podcasty",
-  description: "Sleduj podcasty Bidli na YouTube — rozhovory s lidmi z oboru, tipy na kariéru a pohled zevnitř na svět financí.",
-};
+  description: "Sleduj podcasty Bidli na YouTube. Rozhovory s finančními poradci a manažery, tipy na kariéru ve financích a pohled zevnitř na svět finančního poradenství.",
+  path: "/podcasty",
+  ogImage: "/img/podcast.jpg",
+  keywords: [
+    "Bidli podcast", "finanční poradenství podcast", "kariéra finance YouTube",
+    "rozhovor finanční poradce", "podcast o práci ve financích",
+  ],
+});
 
 const YOUTUBE_CHANNEL = "https://www.youtube.com/@BIDLIsev%C5%A1%C3%ADmv%C5%A1udy";
 
@@ -95,6 +103,10 @@ export default async function Podcasty() {
 
   return (
     <>
+      <StructuredData data={breadcrumbJsonLd([
+        { name: "Domů", url: "/" },
+        { name: "Podcasty", url: "/podcasty" },
+      ])} />
       <Hero
         image="/img/podcast.jpg"
         label="Podcast"

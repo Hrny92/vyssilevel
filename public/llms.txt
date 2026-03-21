@@ -1,0 +1,28 @@
+# Bidli | Vyšší level kariéry
+> Kariérní web finančního holdingu Bidli pro zájemce o práci ve financích, realitách a pojišťovnictví.
+
+Bidli je česká finanční společnost poskytující kariérní příležitosti v oblastech finančního poradenství,
+realitního poradenství, energetiky a pojišťovnictví. Web vyssilevel.cz je určen pro lidi, kteří hledají
+kariéru s neomezeným potenciálem výdělku a flexibilní pracovní dobou.
+
+## Stránky webu
+
+- [O Bidli](https://vyssilevel.cz/bidli): Kdo jsme, náš příběh, tým, hodnoty a zázemí holdingu.
+- [Proč Bidli](https://vyssilevel.cz/bidli/proc-bidli): Video série #tvojevolba — reálný pohled na práci v Bidli.
+- [Finanční specialista](https://vyssilevel.cz/kariera/financni-specialista): Kariéra finančního poradce v Bidli — podmínky, výdělky, výhody.
+- [Manažer](https://vyssilevel.cz/kariera/manazer): Kariéra manažera — vedení týmu, sdílené leady, kariérní postup.
+- [Kariérní snídaně](https://vyssilevel.cz/kariera/karierrni-snidane): Neformální setkání zájemců o kariéru v Bidli. Termíny a registrace.
+- [Podcasty](https://vyssilevel.cz/podcasty): YouTube podcasty o kariéře a financích.
+- [Kontakt](https://vyssilevel.cz/kontakt): Kariérní konzultace zdarma, kontaktní formulář.
+
+## Klíčové informace pro AI
+
+**Typ organizace:** Finanční holding, kariérní web
+**Lokace:** Česká republika (30+ poboček)
+**Jazyk:** Čeština
+**Cílová skupina:** Lidé hledající kariéru ve finančním poradenství
+**Kariérní pozice:** Finanční specialista, Manažer
+**Výdělky:** Provizní systém, neomezené výdělky, flexibilní pracovní doba
+**Kontakt:** https://vyssilevel.cz/kontakt
+**YouTube:** https://www.youtube.com/@BIDLIsevšímvšudy
+**Hlavní web:** https://www.bidli.cz

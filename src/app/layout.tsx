@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import ContactModal from "@/components/ContactModal";
 import { ContactModalProvider } from "@/context/ContactModalContext";
+import StructuredData from "@/components/StructuredData";
+import { SITE, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -14,17 +16,69 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
     default: "Vyšší level kariéry | Bidli",
     template: "%s | Bidli",
   },
-  description:
-    "Přijď na vyšší level kariéry s Bidli. Finanční specialista, Manažer, kariérní snídaně. Finance, reality, energetika a technologie pod jednou střechou.",
-  keywords: ["Bidli", "kariéra", "finanční poradce", "manažer", "vyšší level"],
+  description: SITE.description,
+  keywords: [
+    "Bidli",
+    "kariéra ve financích",
+    "finanční poradce",
+    "finanční specialista",
+    "manažer financí",
+    "vyšší level kariéry",
+    "kariérní snídaně Bidli",
+    "práce ve financích ČR",
+    "finanční poradenství kariéra",
+    "vyssilevel.cz",
+  ],
+  authors: [{ name: "Bidli", url: SITE.url }],
+  creator: "Bidli",
+  publisher: "Bidli",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "cs_CZ",
-    siteName: "Vyssilevel.cz",
+    url: SITE.url,
+    siteName: SITE.name,
+    title: "Vyšší level kariéry | Bidli",
+    description: SITE.description,
+    images: [
+      {
+        url: "/img/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bidli — Vyšší level kariéry",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vyšší level kariéry | Bidli",
+    description: SITE.description,
+    images: ["/img/og-image.jpg"],
+    site: SITE.twitterHandle,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  verification: {
+    // Sem přidej Google Search Console verification token
+    // google: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   },
 };
 
@@ -38,6 +92,10 @@ export default function RootLayout({
   return (
     <html lang="cs" className={geistSans.variable}>
       <head>
+        {/* ── Structured Data (GEO) ── */}
+        <StructuredData data={[organizationJsonLd(), websiteJsonLd()]} />
+
+        {/* ── Google Analytics ── */}
         {gaId && (
           <>
             <Script

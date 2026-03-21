@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd, jobPostingJsonLd, faqJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,10 +15,16 @@ import CtaBanner from "@/components/CtaBanner";
 import VideoGallery from "@/components/VideoGallery";
 import ZdrojeKlientu from "@/components/ZdrojeKlientu";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Manažer",
-  description: "Proč být finanční manažer v Bidli? Silný brand, sdílené leady a moderní náborová podpora.",
-};
+  description: "Staň se manažerem v Bidli. Silný brand, sdílené leady mezi divizemi, moderní náborová podpora a zázemí silného holdingu. Veď vlastní tým s neomezeným potenciálem výdělku.",
+  path: "/kariera/manazer",
+  ogImage: "/img/manazer.jpg",
+  keywords: [
+    "manažer ve financích", "finanční manažer práce", "vedoucí týmu finanční poradenství",
+    "manažer Bidli", "kariérní postup financí", "team leader finance ČR",
+  ],
+});
 
 const features = [
   { icon: faGem, title: "Silný brand\na unikátní komplexnost", desc: "Jedna firma pokrývá finance, reality, energie, technologie i development. Máte nástroje, jak klientovi nabídnout kompletní služby." },
@@ -54,6 +62,24 @@ const videosFilosofie = [
 export default function Manazer() {
   return (
     <>
+      <StructuredData data={[
+        breadcrumbJsonLd([
+          { name: "Domů", url: "/" },
+          { name: "Kariéra", url: "/bidli" },
+          { name: "Manažer", url: "/kariera/manazer" },
+        ]),
+        jobPostingJsonLd({
+          title: "Manažer finančního poradenství",
+          description: "Hledáme manažera pro vedení vlastního týmu finančních poradců. Silný brand Bidli, sdílené leady mezi divizemi, moderní náborová podpora a zázemí silného holdingu. Kariérní postup bez stropu.",
+          url: "/kariera/manazer",
+          skills: ["vedení týmu", "nábor", "finanční poradenství", "obchod", "koučování"],
+        }),
+        faqJsonLd([
+          { question: "Co dělá manažer finančního poradenství v Bidli?", answer: "Manažer vede vlastní tým finančních poradců — nabírá nové lidi, školí je, motivuje a pomáhá jim růst. Zároveň sám aktivně pracuje s klienty." },
+          { question: "Jak se mohu stát manažerem v Bidli?", answer: "Většina manažerů začíná jako finanční specialista. Po prokázání výsledků a zájmu o vedení dostanete příležitost budovat vlastní tým." },
+          { question: "Kolik vydělá manažer v Bidli?", answer: "Manažer vydělává provize ze svých vlastních obchodů plus procento z výsledků svého týmu. Průměrný manažer dosahuje 80 000–150 000 Kč měsíčně." },
+        ]),
+      ]} />
       <Hero
         image="/img/manazer.jpg"
         label="Kariéra"

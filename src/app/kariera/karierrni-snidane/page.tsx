@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCoffee, faUsers, faComments } from "@fortawesome/free-solid-svg-icons";
@@ -8,10 +10,16 @@ import TerminySelectSection from "@/components/TerminySelectSection";
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Kariérní snídaně",
-  description: "Poznej nás u kávy. Upřímně, otevřeně, bez pozlátek. Přijď na kariérní snídani a potkej se s těmi, kdo tvoří Bidli.",
-};
+  description: "Poznej nás u kávy — upřímně, otevřeně, bez pozlátek. Přijď na kariérní snídani Bidli ve svém městě a potkej se s těmi, kdo tvoří naši firmu. Registrace zdarma.",
+  path: "/kariera/karierrni-snidane",
+  ogImage: "/img/snidane2.jpg",
+  keywords: [
+    "kariérní snídaně Bidli", "kariérní akce financí", "setkání s finančními poradci",
+    "kariérní event zdarma", "networking finance ČR", "info schůzka Bidli",
+  ],
+});
 
 const vyhody = [
   {
@@ -36,6 +44,18 @@ export default async function KarierniSnidane() {
 
   return (
     <>
+      <StructuredData data={[
+        breadcrumbJsonLd([
+          { name: "Domů", url: "/" },
+          { name: "Kariéra", url: "/bidli" },
+          { name: "Kariérní snídaně", url: "/kariera/karierrni-snidane" },
+        ]),
+        faqJsonLd([
+          { question: "Co je kariérní snídaně Bidli?", answer: "Neformální setkání u kávy, kde se zájemci o kariéru v Bidli mohou ptát na cokoliv — bez závazků, bez marketingových prezentací. Proběhne ve vašem městě." },
+          { question: "Kolik kariérní snídaně stojí?", answer: "Kariérní snídaně Bidli je zcela zdarma. Stačí se registrovat a přijít." },
+          { question: "Ve kterých městech probíhá kariérní snídaně?", answer: "Kariérní snídaně probíhají ve více městech po celé České republice — Praha, Brno, Ostrava, Pardubice a další. Aktuální termíny jsou k dispozici na webu." },
+        ]),
+      ]} />
       <Hero
         image="/img/snidane2.jpg"
         label="Kariéra"

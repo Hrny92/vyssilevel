@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd, SITE } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,10 +13,13 @@ import ContactButton from "@/components/ContactButton";
 import CtaBanner from "@/components/CtaBanner";
 import StatsCounter from "@/components/StatsCounter";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "O Bidli",
-  description: "Silný příběh, stabilní zázemí, neomezené možnosti. Přes 20 let na trhu, 30+ poboček.",
-};
+  description: "Silný příběh, stabilní zázemí, neomezené možnosti. Přes 20 let na trhu, 30+ poboček po celé České republice. Finance, reality, energetika a pojišťovnictví pod jednou střechou.",
+  path: "/bidli",
+  ogImage: "/img/hero-image2.jpg",
+  keywords: ["o Bidli", "Bidli holding", "finanční poradenství ČR", "pobočky Bidli", "stabilní zázemí"],
+});
 
 const procBidliBody = [
   { bold: "Silné zázemí", text: "přes 20 let zkušeností, stabilní značka, více než 30 poboček po ČR." },
@@ -97,6 +102,10 @@ const departments = [
 export default function OBidli() {
   return (
     <>
+      <StructuredData data={breadcrumbJsonLd([
+        { name: "Domů", url: "/" },
+        { name: "O Bidli", url: "/bidli" },
+      ])} />
       <Hero
         image="/img/hero-image2.jpg"
         imageAlt="Bidli tým"

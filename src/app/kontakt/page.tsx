@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 import { BidliPiktogram } from "@/components/BidliLogo";
 import KontaktForm from "@/components/KontaktForm";
 import Hero from "@/components/Hero";
 import CtaBanner from "@/components/CtaBanner";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Kontakt",
-  description: "Čas posunout kariéru na vyšší level? Zanechte nám telefonní číslo a my se vám ozveme.",
-};
+  description: "Chceš posunout kariéru na vyšší level? Nech nám číslo a ozveme se do 24 hodin. Bezplatná kariérní konzultace, bez závazků.",
+  path: "/kontakt",
+  keywords: ["kontakt Bidli", "kariérní konzultace zdarma", "zájem o práci Bidli", "ozvěte se"],
+});
 
 const duvoды = [
   { number: "01", text: "Ozveme se ti do 24 hodin" },
@@ -18,6 +22,10 @@ const duvoды = [
 export default function Kontakt() {
   return (
     <>
+      <StructuredData data={breadcrumbJsonLd([
+        { name: "Domů", url: "/" },
+        { name: "Kontakt", url: "/kontakt" },
+      ])} />
       <Hero
         image="/img/hero-image2.jpg"
         title={<>Čas posunout kariéru</>}

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd, jobPostingJsonLd, faqJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,10 +17,16 @@ import CtaBanner from "@/components/CtaBanner";
 import VideoGallery from "@/components/VideoGallery";
 import ZdrojeKlientu from "@/components/ZdrojeKlientu";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Finanční specialista",
-  description: "Proč být finanční specialista v Bidli? Stabilní zázemí, neomezené výdělky a moderní nástroje.",
-};
+  description: "Staň se finančním specialistou v Bidli. Neomezené výdělky, flexibilní pracovní doba, moderní CRM nástroje a zázemí holdingu s 30+ pobočkami po celé ČR.",
+  path: "/kariera/financni-specialista",
+  ogImage: "/img/specialista.jpg",
+  keywords: [
+    "finanční specialista práce", "finanční poradce nabídka práce", "kariéra finanční poradenství",
+    "finanční poradce Bidli", "práce finanční specialista ČR", "brigáda finanční specialista",
+  ],
+});
 
 const features = [
   { icon: faUserTie, title: "Poradce vždy\nna prvním místě", desc: "Pomáháme vám růst ve vašem podnikání." },
@@ -56,6 +64,24 @@ const videosFilosofie = [
 export default function FinancniSpecialista() {
   return (
     <>
+      <StructuredData data={[
+        breadcrumbJsonLd([
+          { name: "Domů", url: "/" },
+          { name: "Kariéra", url: "/bidli" },
+          { name: "Finanční specialista", url: "/kariera/financni-specialista" },
+        ]),
+        jobPostingJsonLd({
+          title: "Finanční specialista",
+          description: "Hledáme finančního specialistu do naší sítě. Nabízíme flexibilní pracovní dobu, neomezené výdělky, moderní CRM nástroje, zázemí holdingu a přístup ke komplexním produktům — finance, reality, energetika, pojišťovnictví.",
+          url: "/kariera/financni-specialista",
+          skills: ["finanční poradenství", "práce s klienty", "prodej", "komunikace", "CRM"],
+        }),
+        faqJsonLd([
+          { question: "Kolik vydělá finanční specialista v Bidli?", answer: "Výdělky jsou neomezené a závisí na vaší aktivitě. Provize jsou nadstandardní, bez stropu — průměrný specialista vydělává 40 000–80 000 Kč měsíčně." },
+          { question: "Musím mít vzdělání v oboru financí?", answer: "Vzdělání v oboru není nutné. Bidli poskytuje komplexní zaškolení a podporu manažera od prvního dne." },
+          { question: "Jaká je pracovní doba finančního specialisty?", answer: "Pracovní doba je zcela flexibilní — sami si plánujete schůzky a čas práce. Ideální pro lidi, kteří chtějí skloubit práci se svým životem." },
+        ]),
+      ]} />
       <Hero
         image="/img/specialista.jpg"
         label="Kariéra"

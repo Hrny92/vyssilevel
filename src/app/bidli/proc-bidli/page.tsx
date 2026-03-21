@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import { pageMeta, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,10 +9,12 @@ import Hero from "@/components/Hero";
 import ContactButton from "@/components/ContactButton";
 import CtaBanner from "@/components/CtaBanner";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Proč Bidli",
-  description: "Neukazujeme klišé, ale realitu. Videa #tvojevolba odhalují, jak to jinde funguje – a proč u nás mají poradci prostor růst.",
-};
+  description: "Neukazujeme klišé, ale realitu. Videa #tvojevolba odhalují, jak to jinde funguje a proč mají poradci v Bidli prostor růst, modernní nástroje a stabilní zázemí.",
+  path: "/bidli/proc-bidli",
+  keywords: ["proč Bidli", "#tvojevolba", "finanční kariéra srovnání", "moderní finanční firma", "růst ve financích"],
+});
 
 const videos = [
   {
@@ -48,6 +52,18 @@ const videos = [
 export default function ProcBidli() {
   return (
     <>
+      <StructuredData data={[
+        breadcrumbJsonLd([
+          { name: "Domů", url: "/" },
+          { name: "O Bidli", url: "/bidli" },
+          { name: "Proč Bidli", url: "/bidli/proc-bidli" },
+        ]),
+        faqJsonLd([
+          { question: "Proč pracovat v Bidli?", answer: "Bidli nabízí moderní nástroje, stabilní zázemí, neomezené výdělky a flexibilní pracovní dobu. Poradci mají přístup k CRM systému, sdíleným leadům a komplexním produktům." },
+          { question: "Co je to #tvojevolba?", answer: "Série videí, kde ukazujeme reálnou práci finančního poradce v Bidli bez příkras – jak funguje naše zázemí, kultura a každodenní realita." },
+          { question: "Jaké jsou výhody práce finančního poradce v Bidli?", answer: "Flexibilní pracovní doba, přístup k produktům z oblasti financí, realit, energetiky a pojišťovnictví, moderní CRM nástroje a podpora manažera." },
+        ]),
+      ]} />
       <Hero
         image="/img/proc.jpg"
         label="Bidli"
