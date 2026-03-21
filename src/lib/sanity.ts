@@ -105,8 +105,9 @@ export const DEFAULT_STATS: BidliStat[] = [
 
 export async function getBidliStats(): Promise<BidliStat[]> {
   if (!client) return DEFAULT_STATS;
+  // Singleton — vždy fetchujeme dokument s fixním ID "bidliStats"
   const doc = await client.fetch<{ stats?: BidliStat[] } | null>(
-    `*[_type == "bidliStats"][0]{ stats }`
+    `*[_type == "bidliStats" && _id == "bidliStats"][0]{ stats }`
   );
   if (!doc?.stats?.length) return DEFAULT_STATS;
   return doc.stats;

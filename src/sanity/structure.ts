@@ -4,6 +4,20 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Vyssilevel CMS")
     .items([
+      // ── Singleton: Bidli v číslech ──────────────────────────────────────
+      S.listItem()
+        .title("Bidli v číslech")
+        .icon(() => "📊")
+        .child(
+          S.document()
+            .schemaType("bidliStats")
+            .documentId("bidliStats")  // fixní ID — vždy jen jeden dokument
+            .title("Bidli v číslech")
+        ),
+
+      S.divider(),
+
+      // ── Kariérní snídaně ────────────────────────────────────────────────
       S.listItem()
         .title("Kariérní snídaně")
         .icon(() => "☕")
@@ -12,6 +26,8 @@ export const structure: StructureResolver = (S) =>
             .title("Termíny kariérních snídaní")
             .defaultOrdering([{ field: "datum", direction: "asc" }])
         ),
+
+      // ── Podcasty ────────────────────────────────────────────────────────
       S.listItem()
         .title("Podcasty")
         .icon(() => "🎙️")
