@@ -147,7 +147,7 @@ export default async function KarierniSnidane() {
                       ? d.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" })
                       : null;
                     return (
-                      <div key={t._id} className="group flex items-stretch gap-0 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#3fb1e1]/40 hover:shadow-md transition-all duration-200">
+                      <div key={t._id} className="flex items-stretch gap-0 rounded-2xl overflow-hidden border border-gray-100">
                         {/* Datum — levý panel */}
                         <div className="bg-[#142f4c] flex flex-col items-center justify-center px-5 py-4 min-w-[80px] flex-shrink-0">
                           <span className="text-[#3fb1e1] font-black text-3xl leading-none">{day}</span>
@@ -169,11 +169,6 @@ export default async function KarierniSnidane() {
                                 </span>
                               )}
                             </div>
-                          </div>
-                          <div className="w-8 h-8 rounded-full bg-[#3fb1e1]/10 group-hover:bg-[#3fb1e1] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
-                            <svg className="w-3.5 h-3.5 text-[#3fb1e1] group-hover:text-white transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
                           </div>
                         </div>
                       </div>
