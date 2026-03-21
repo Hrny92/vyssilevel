@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ksEmailHtml, ksEmailSubject } from "@/lib/email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const TO_EMAIL = "lukas.hrnci@bidli.cz";
+const TO_EMAIL   = "lukas.hrnci@bidli.cz";
 const FROM_EMAIL = "Bidli Web <noreply@vyssilevel.cz>";
 
 export async function POST(request: Request) {
@@ -18,18 +17,21 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
       console.error("❌ RESEND_API_KEY není nastavena");
       return NextResponse.json({ error: "Chyba konfigurace serveru" }, { status: 500 });
     }
 
-    const data = { jmeno, telefon, termin };
+    // Lazy init — nevytváříme instanci při načtení modulu, ale až zde
+    const resend = new Resend(apiKey);
+    const data   = { jmeno, telefon, termin };
 
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: TO_EMAIL,
+      to:   TO_EMAIL,
       subject: ksEmailSubject(data),
-      html: ksEmailHtml(data),
+      html:    ksEmailHtml(data),
     });
 
     if (error) {
