@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { kontaktEmailHtml, kontaktEmailSubject } from "@/lib/email";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const TO_EMAIL = "lukas.hrnci@bidli.cz";
+const FROM_EMAIL = "Bidli Web <noreply@vyssilevel.cz>";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { jmeno, telefon, kraj, pozice, souhlas } = body;
 
-    // Basic validation
     if (!jmeno || !telefon || !kraj || !pozice || !souhlas) {
       return NextResponse.json(
         { error: "Vyplňte prosím všechna povinná pole" },
@@ -13,31 +18,28 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Replace with your preferred notification method.
-    // Options:
-    //   1. Send email via Resend / Nodemailer / SendGrid
-    //   2. Post to a webhook (Zapier, Make, n8n)
-    //   3. Save to a database
-    //
-    // Example with Resend (npm install resend):
-    //
-    // import { Resend } from "resend";
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "web@vyssilevel.cz",
-    //   to: "info@bidli.cz",
-    //   subject: `Nový kontaktní formulář – ${pozice}`,
-    //   text: `Jméno: ${jmeno}\nTelefon: ${telefon}\nKraj: ${kraj}\nPozice: ${pozice}`,
-    // });
+    if (!process.env.RESEND_API_KEY) {
+      console.error("❌ RESEND_API_KEY není nastavena");
+      return NextResponse.json({ error: "Chyba konfigurace serveru" }, { status: 500 });
+    }
 
-    console.log("📬 Nový kontaktní formulář:", { jmeno, telefon, kraj, pozice });
+    const data = { jmeno, telefon, kraj, pozice };
+
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
+      subject: kontaktEmailSubject(data),
+      html: kontaktEmailHtml(data),
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json({ error: "Nepodařilo se odeslat e-mail" }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Contact form error:", error);
-    return NextResponse.json(
-      { error: "Interní chyba serveru" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Interní chyba serveru" }, { status: 500 });
   }
 }
