@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 // ─── SMTP konfigurace (Email Profi od Seznamu) ─────────────────────────────
 // Potřebné env proměnné ve Vercel:
-//   SMTP_HOST     = smtp.email-profi.cz
+//   SMTP_HOST     = smtp.seznam.cz
 //   SMTP_PORT     = 465
 //   SMTP_USER     = info@vyssilevel.cz
 //   SMTP_PASSWORD = <heslo k e-mailu>
@@ -10,7 +10,7 @@ import nodemailer from "nodemailer";
 
 export function createTransport() {
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST ?? "smtp.email-profi.cz",
+    host: process.env.SMTP_HOST ?? "smtp.seznam.cz",
     port: Number(process.env.SMTP_PORT ?? 465),
     secure: Number(process.env.SMTP_PORT ?? 465) === 465, // true pro 465 (SSL), false pro 587 (STARTTLS)
     auth: {
