@@ -1,8 +1,10 @@
 import Image from "next/image";
 
 interface HeroProps {
-  /** Path to background image inside /public */
+  /** Path to background image inside /public (desktop) */
   image: string;
+  /** Mobile-specific background image — automaticky se odvodí z `image` pokud není zadáno */
+  mobileImage?: string;
   imageAlt?: string;
   /** Small label above the title, e.g. "Kariéra" */
   label?: string;
@@ -16,12 +18,27 @@ interface HeroProps {
   children?: React.ReactNode;
 }
 
+/** Odvodí cestu k mobilnímu obrázku z desktopové cesty.
+ *  /img/specialista.jpg → /img/mobile/specialista-mobile.jpg
+ */
+function deriveMobileImage(desktopPath: string): string {
+  const lastSlash = desktopPath.lastIndexOf("/");
+  const dir       = desktopPath.substring(0, lastSlash);       // "/img"
+  const file      = desktopPath.substring(lastSlash + 1);       // "specialista.jpg"
+  const dot       = file.lastIndexOf(".");
+  const name      = file.substring(0, dot);                     // "specialista"
+  const ext       = file.substring(dot);                        // ".jpg"
+  return `${dir}/mobile/${name}-mobile${ext}`;                  // "/img/mobile/specialista-mobile.jpg"
+}
+
 /**
  * Shared full-screen hero used on every page.
  * Image fills the section as background; text is overlaid, left-aligned.
+ * Na mobilech se zobrazí mobileImage (pokud existuje), na desktopu image.
  */
 export default function Hero({
   image,
+  mobileImage,
   imageAlt = "Hero",
   label,
   title,
@@ -29,14 +46,27 @@ export default function Hero({
   subtitle,
   children,
 }: HeroProps) {
+  const mobile = mobileImage ?? deriveMobileImage(image);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
+
+      {/* Mobilní obrázek (skrytý od md nahoru) */}
+      <Image
+        src={mobile}
+        alt={imageAlt}
+        fill
+        className="object-cover object-center md:hidden"
+        priority
+        sizes="100vw"
+      />
+
+      {/* Desktopový obrázek (skrytý pod md) */}
       <Image
         src={image}
         alt={imageAlt}
         fill
-        className="object-cover object-center"
+        className="object-cover object-center hidden md:block"
         priority
         sizes="100vw"
       />
