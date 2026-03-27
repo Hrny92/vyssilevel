@@ -47,7 +47,7 @@ export default function Hero({
   const mobile = mobileImage ?? deriveMobileImage(image);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0d1f32]">
 
       {/* Hero obrázek — <picture> zajistí stažení jen jednoho zdroje */}
       <div className="absolute inset-0">
@@ -59,7 +59,7 @@ export default function Hero({
           <img
             src={image}
             alt={imageAlt}
-            className="w-full h-full object-cover object-center"
+            className="hero-img w-full h-full object-cover object-center"
             fetchPriority="high"
             decoding="async"
             loading="eager"

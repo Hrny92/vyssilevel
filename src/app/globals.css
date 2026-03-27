@@ -243,6 +243,15 @@ section.bg-white + section.bg-white {
 .animate-fadeIn {
   animation: fadeIn 0.18s ease-out forwards;
 }
+
+/* Hero image fade-in — plynulý přechod místo probliknutí */
+@keyframes heroImgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.hero-img {
+  animation: heroImgFadeIn 0.5s ease-in forwards;
+}
 /* Ensure dropdown panel is never clipped by parent overflow */
 .dropdown-bridge {
   pointer-events: all;
