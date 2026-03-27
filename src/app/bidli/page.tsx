@@ -222,11 +222,11 @@ export default async function OBidli() {
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f32]/90 via-[#0d1f32]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-white font-black text-base leading-tight">{p.name}</p>
-                  <p className="text-[#3fb1e1] text-xs font-semibold mt-1 whitespace-pre-line leading-snug">{p.role}</p>
-                  <p className="text-white/55 text-xs mt-2 leading-relaxed line-clamp-3">{p.desc}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f32]/85 via-[#0d1f32]/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
+                  <p className="text-white font-black text-sm sm:text-base leading-tight">{p.name}</p>
+                  <p className="text-[#3fb1e1] text-[11px] sm:text-xs font-semibold mt-0.5 sm:mt-1 whitespace-pre-line leading-snug">{p.role}</p>
+                  <p className="hidden sm:block text-white/55 text-xs mt-2 leading-relaxed line-clamp-3">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -241,7 +241,7 @@ export default async function OBidli() {
           {/* Strategický tým */}
           <div className="mb-14">
             <div className="flex items-center gap-4 mb-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">Strategický tým</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 sm:whitespace-nowrap">Strategický tým</p>
               <div className="flex-1 h-px bg-gray-100" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -264,7 +264,7 @@ export default async function OBidli() {
             {departments.map((dept, i) => (
               <div key={i}>
                 <div className="flex items-center gap-4 mb-8">
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">{dept.title}</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 sm:whitespace-nowrap">{dept.title}</p>
                   <div className="flex-1 h-px bg-gray-100" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
