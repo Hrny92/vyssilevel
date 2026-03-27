@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface HeroProps {
   /** Path to background image inside /public (desktop) */
   image: string;
@@ -33,8 +31,8 @@ function deriveMobileImage(desktopPath: string): string {
 
 /**
  * Shared full-screen hero used on every page.
- * Image fills the section as background; text is overlaid, left-aligned.
- * Na mobilech se zobrazí mobileImage (pokud existuje), na desktopu image.
+ * Používá nativní <picture> element s <source media> — browser stáhne
+ * POUZE jeden obrázek (mobilní nebo desktopový) podle viewportu.
  */
 export default function Hero({
   image,
@@ -51,25 +49,23 @@ export default function Hero({
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* Mobilní obrázek (skrytý od md nahoru) */}
-      <Image
-        src={mobile}
-        alt={imageAlt}
-        fill
-        className="object-cover object-center md:hidden"
-        priority
-        sizes="100vw"
-      />
-
-      {/* Desktopový obrázek (skrytý pod md) */}
-      <Image
-        src={image}
-        alt={imageAlt}
-        fill
-        className="object-cover object-center hidden md:block"
-        priority
-        sizes="100vw"
-      />
+      {/* Hero obrázek — <picture> zajistí stažení jen jednoho zdroje */}
+      <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <picture>
+          {/* Mobilní obrázek (viewport < 768px) */}
+          <source media="(max-width: 767px)" srcSet={mobile} />
+          {/* Desktopový obrázek (výchozí) */}
+          <img
+            src={image}
+            alt={imageAlt}
+            className="w-full h-full object-cover object-center"
+            fetchPriority="high"
+            decoding="async"
+            loading="eager"
+          />
+        </picture>
+      </div>
 
       {/* Gradient overlay — strong on left for text legibility, fades to right */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f32]/90 via-[#142f4c]/70 to-[#142f4c]/20" />
