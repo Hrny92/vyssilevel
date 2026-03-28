@@ -70,7 +70,6 @@ const teamOther = [
   { name: "Dana Klimeschová", role: "Finanční ředitelka Bidli holding", img: "/img/Klimeschova2.jpg" },
   { name: "Daniel Klika", role: "Finanční analytik, tvorba finančních plánů", img: "/img/Klika2.jpg" },
   { name: "David Sybol", role: "Specialista produktové podpory a controllingu", img: "/img/Sybol2.jpg" },
-  { name: "Barbora Sýkorová", role: "Asistentka divize finance a poradenství", img: "/img/Sykorova2.jpg" },
   { name: "Miroslav Hrnčíř", role: "IT podpora", img: "/img/MHrncir2.jpg" },
 ];
 
@@ -96,7 +95,7 @@ const departments = [
     people: [
       { name: "Michael Šolín", role: "Marketingový ředitel", img: "/img/Solin2.jpg" },
       { name: "Lukáš Kroupa", role: "Marketingový manažer", img: "/img/kroupa2.jpg" },
-      { name: "Lukáš Zdráhal", role: "Marketingový specialista", img: "/img/Zdrahal2.jpg" },
+      { name: "Lukáš Zdrahal", role: "Marketingový specialista", img: "/img/Zdrahal2.jpg" },
       { name: "Lukáš Hrnčíř", role: "Grafický designer", img: "/img/Hrncir2.jpg" },
     ],
   },

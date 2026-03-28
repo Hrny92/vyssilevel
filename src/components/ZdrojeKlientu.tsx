@@ -9,7 +9,7 @@ import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 const zdroje: { icon: IconDefinition; label: string; sublabel: string }[] = [
   { icon: faDollarSign,  label: "Provize z crossellu",     sublabel: "ostatních divizí Bidli"        },
-  { icon: faCommentDots, label: "Poptávky klientů",         sublabel: "z klientské zóny"              },
+  { icon: faCommentDots, label: "Poptávky klientů",         sublabel: "z Klientské zóny"              },
   { icon: faDatabase,    label: "Databáze zájemců",         sublabel: "u realit"                      },
   { icon: faBullhorn,    label: "Marketingové kampaně",     sublabel: "na naše produkty"              },
 ];
@@ -39,7 +39,7 @@ export default function ZdrojeKlientu() {
           <div className="divider-sky mx-auto" />
           <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Zdroje klientů</h2>
           <p className="text-white/40 text-sm max-w-md mx-auto">
-            Více zdrojů, více příležitostí. Klienti přichází z více směrů najednou.
+            Více zdrojů, více příležitostí. Klienti přicházejí z více směrů najednou.
           </p>
         </div>
 

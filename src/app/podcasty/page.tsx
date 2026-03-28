@@ -131,7 +131,7 @@ export default async function Podcasty() {
                 Podcast, který mluví<br />o věcech, na kterých záleží.
               </h2>
               <p className="text-white/60 text-sm mt-2 leading-relaxed">
-                Nové epizody vychází nárazově — sleduj nás na YouTube.
+                Nové epizody vycházejí nárazově — sleduj nás na YouTube.
               </p>
             </div>
 

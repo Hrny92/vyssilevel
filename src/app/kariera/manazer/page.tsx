@@ -34,7 +34,7 @@ const features = [
   { icon: faHandshake, title: "Specializace\ns kompletní obsluhou klienta", desc: "Váš tým se může zaměřit na to, co umí nejlépe. Díky spolupráci s kolegy z jiných divizí klient dostane kompletní servis." },
   { icon: faUserPlus, title: "Moderní\nnáborová podpora", desc: "Nábor není jen na vás. Aktivně pomáháme s marketingovými kampaněmi, školením i adaptací nováčků." },
   { icon: faChartLine, title: "Minimum administrativy,\nmaximum obchodu", desc: "Analytické oddělení připraví finanční plány pro klienty vašeho týmu. Vy se věnujete lidem, obchodu a růstu." },
-  { icon: faCoins, title: "Férové\na transparentní odměny", desc: "Naše provize patří mezi nejvyšší na trhu. Vaši lidé u nás můžou vydělávat víc — za stejnou práci, s lepší podporou." },
+  { icon: faCoins, title: "Férové\na transparentní odměny", desc: "Naše provize patří mezi nejvyšší na trhu. Vaši lidé u nás mohou vydělávat víc — za stejnou práci, s lepší podporou." },
   { icon: faArrowUp, title: "Lídři rostou\ns firmou", desc: "Budujeme s manažery. Pokud máte ambice, otevíráme vám dveře k dalším kariérním krokům. Tady růst nekončí." },
 ];
 

@@ -34,7 +34,7 @@ const vyhody = [
   },
   {
     icon: faComments,
-    title: "Zeptej se na cokoliv",
+    title: "Zeptej se na cokoli",
     desc: "Kariérní růst, odměňování, kultura firmy – na kariérní snídani není špatná otázka.",
   },
 ];
@@ -51,7 +51,7 @@ export default async function KarierniSnidane() {
           { name: "Kariérní snídaně", url: "/kariera/karierrni-snidane" },
         ]),
         faqJsonLd([
-          { question: "Co je kariérní snídaně Bidli?", answer: "Neformální setkání u kávy, kde se zájemci o kariéru v Bidli mohou ptát na cokoliv — bez závazků, bez marketingových prezentací. Proběhne ve vašem městě." },
+          { question: "Co je kariérní snídaně Bidli?", answer: "Neformální setkání u kávy, kde se zájemci o kariéru v Bidli mohou ptát na cokoli — bez závazků, bez marketingových prezentací. Proběhne ve vašem městě." },
           { question: "Kolik kariérní snídaně stojí?", answer: "Kariérní snídaně Bidli je zcela zdarma. Stačí se registrovat a přijít." },
           { question: "Ve kterých městech probíhá kariérní snídaně?", answer: "Kariérní snídaně probíhají ve více městech po celé České republice — Praha, Brno, Ostrava, Pardubice a další. Aktuální termíny jsou k dispozici na webu." },
         ]),
@@ -61,7 +61,7 @@ export default async function KarierniSnidane() {
         label="Kariéra"
         title={<>Kariérní</>}
         titleAccent="snídaně"
-        subtitle="Přijď, posaď se, dej si kávu a zeptej se na cokoliv."
+        subtitle="Přijď, posaď se, dej si kávu a zeptej se na cokoli."
       >
         <a href="#prihlasit" className="btn-primary">
           Vybrat termín <FontAwesomeIcon icon={faArrowRight} />
@@ -86,7 +86,7 @@ export default async function KarierniSnidane() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f32]/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-white font-black text-xl leading-tight">Přijď,<br />posaď se, dej si kávu.</p>
-                <p className="text-white/70 text-sm mt-2">Zeptej se na cokoliv.</p>
+                <p className="text-white/70 text-sm mt-2">Zeptej se na cokoli.</p>
               </div>
             </div>
 
