@@ -74,7 +74,7 @@ export default function Hero({
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 md:pt-36 md:pb-28">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           {/* Label */}
           {label && (
             <p className="text-[#3fb1e1] text-xs font-bold uppercase tracking-[0.2em] mb-5">
