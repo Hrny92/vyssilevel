@@ -68,7 +68,7 @@ export default function Hero({
       </div>
 
       {/* Gradient overlay — strong on left for text legibility, fades to right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f32]/90 via-[#142f4c]/70 to-[#142f4c]/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f32]/90 via-[#142f4c]/60 to-transparent" />
       {/* Extra darkening at bottom */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f32]/60 via-transparent to-transparent" />
 
