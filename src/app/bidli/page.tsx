@@ -114,7 +114,7 @@ export default async function OBidli() {
         image="/img/hero-image2.jpg"
         imageAlt="Bidli tým"
         label="Vyšší level kariéry"
-        title={<>Ready na vyšší<br />level kariéry?</>}
+        title={<>Narazili jste na strop?<br />Posuňte se na vyšší level kariéry.</>}
         subtitle="Finance, reality a energetika pod jednou střechou. Přidej se k silnému týmu a buduj kariéru bez stropu."
       >
         <ContactButton className="btn-primary">
