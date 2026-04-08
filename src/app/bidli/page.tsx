@@ -39,7 +39,7 @@ const teamMain = [
     name: "Jiří Lejnar",
     role: "Výkonný ředitel\nBidli holding",
     quote: "Nejdůležitější nejsou čísla, ale lidé, kteří za nimi stojí.",
-    desc: "Jiří Lejnar, předseda a výkonný ředitel Bidli holding, s 20+ lety praxe vede firmu k úspěchu díky komplexním službám v oblasti bydlení a neustálým inovacím.",
+    desc: "Jirka, předseda a výkonný ředitel Bidli holding, s 20+ lety praxe vede firmu k úspěchu díky komplexním službám v oblasti bydlení a neustálým inovacím.",
     img: "/img/lejnar2.jpg",
   },
   {
@@ -53,14 +53,14 @@ const teamMain = [
     name: "Daniel Horňák",
     role: "Strategický manažer,\nspecialista na bankovní produkty",
     quote: "Nejdůležitější nejsou čísla, ale lidé, kteří za nimi stojí.",
-    desc: "Ve světě financí se pohybuje 18 let a v úvěrech má za sebou objem přes 4,5 MLD korun.",
+    desc: "Daniel se ve světě financí pohybuje 18 let a v úvěrech má za sebou objem přes 4,5 MLD korun.",
     img: "/img/hornak2.jpg",
   },
   {
     name: "Aneta Klečková",
     role: "Strategická manažerka,\nspecialistka na pojištění",
     quote: "Nejdůležitější nejsou čísla, ale lidé, kteří za nimi stojí.",
-    desc: "V oblasti poradenství působí od roku 2009, věnuje se oblasti pojištění s přesahem do komplexního poradenství.",
+    desc: "Anetav oblasti poradenství působí od roku 2009, věnuje se oblasti pojištění s přesahem do komplexního poradenství.",
     img: "/img/Kleckova3.jpg",
   },
 ];
@@ -114,8 +114,8 @@ export default async function OBidli() {
         image="/img/hero-image2.jpg"
         imageAlt="Bidli tým"
         label="Vyšší level kariéry"
-        title={<><span className="whitespace-nowrap">Narazili jste na strop?</span><br />Posuňte se na vyšší level kariéry.</>}
-        subtitle="Finance, reality a energetika pod jednou střechou. Přidej se k silnému týmu a buduj kariéru bez stropu."
+        title={<><span className="whitespace-nowrap">Posuňte se na</span><br />vyšší level kariéry.</>}
+        subtitle="Narazili jste na skleněný strop nebo zkrátka chcete víc? Finance, reality energetika pod jednou střechou. Přidej se k silnému týmu a buduj kariéru bez stropu."
       >
         <ContactButton className="btn-primary">
           #tvojevolba <FontAwesomeIcon icon={faArrowRight} />
@@ -144,9 +144,9 @@ export default async function OBidli() {
                 </p>
                 <p>
                   Jejich úsilí vedlo k tomu, že během jediného roku se z malé kanceláře stalo
-                  nejúspěšnější Hypocentrum v ČR. Každý další rok přinášel růst, rozšíření služeb
-                  a nové výzvy. Už jsme nechtěli jen pomáhat financovat bydlení – chtěli jsme lidem
-                  pomoci bydlet se vším všudy. A tak jsme postupně vybudovali nejkomplexnější
+                  nejúspěšnější hypocentrum v ČR. Každý další rok přinášel růst, rozšíření služeb
+                  a nové výzvy. Už jsme nechtěli jen pomáhat financovat bydlení – chtěli jsme lidem 
+                  pomoci s plněném všech jejich snů o bydlení. A tak jsme postupně vybudovali nejkomplexnější
                   ekosystém na trhu.
                 </p>
                 <p>
@@ -176,7 +176,7 @@ export default async function OBidli() {
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Bidli je pro ty, kteří nechtějí zůstat stát na místě. Pro poradce, manažery a lídry,
-                kteří cítí, že jejich současná firma je brzdí.
+                kteří cítí, že je současná firma brzdí.
               </p>
               <ul className="space-y-3">
                 {procBidliBody.map((b, i) => (
@@ -239,10 +239,7 @@ export default async function OBidli() {
 
           {/* Strategický tým */}
           <div className="mb-14">
-            <div className="flex items-center gap-4 mb-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 sm:whitespace-nowrap">Strategický tým</p>
-              <div className="flex-1 h-px bg-gray-100" />
-            </div>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {teamOther.map((p, i) => (
                 <div key={i} className="group flex items-center gap-4 bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-[#3fb1e1]/30 hover:shadow-md transition-all duration-200">

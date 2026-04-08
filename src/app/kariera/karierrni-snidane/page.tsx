@@ -25,7 +25,7 @@ const vyhody = [
   {
     icon: faCoffee,
     title: "Neformální atmosféra",
-    desc: "Žádné prezentace s grafy. Jen lidé, kteří otevřeně mluví o tom, jak to u nás skutečně funguje.",
+    desc: "Žádné sterilní prostředí. Jen lidé, kteří otevřeně mluví o tom, jak to u nás skutečně funguje.",
   },
   {
     icon: faUsers,
@@ -35,7 +35,7 @@ const vyhody = [
   {
     icon: faComments,
     title: "Zeptej se na cokoli",
-    desc: "Kariérní růst, odměňování, kultura firmy – na kariérní snídani není špatná otázka.",
+    desc: "Kariérní růst, odměňování, kultura firmy – neexistuje špatná či nevhodná otázka.",
   },
 ];
 
@@ -97,7 +97,7 @@ export default async function KarierniSnidane() {
                 Chcete posunout kariéru<br />na vyšší level?
               </h2>
               <p className="text-white/60 text-sm mt-2 leading-relaxed">
-                Nečekej prezentaci s grafy — čekej lidi s otevřenými odpověďmi.
+                Žádné prezentaci a grafy — čekej lidi s otevřenými odpověďmi.
               </p>
             </div>
 

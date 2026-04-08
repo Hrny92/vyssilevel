@@ -54,8 +54,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <BidliLogo className="h-10 w-auto mb-4" variant="white" />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              Přijď na vyšší level kariéry. Bidli — finance, reality, energetika
-              a technologie pod jednou střechou.
+              Přijď na vyšší level kariéry. Bidli — finance, reality a energetika
+              pod jednou střechou.
             </p>
             {/* Social links */}
             <div className="flex items-center gap-3 mt-6">

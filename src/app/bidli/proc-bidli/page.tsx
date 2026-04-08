@@ -29,7 +29,7 @@ const videos = [
   },
   {
     title: "100 známých",
-    desc: "Volání kámošům ze základky a falešná euforie nejsou cesta za úspěchem. V Bidli poradce nehoní známé – pracuje s reálnými klienty a sdílenými příležitostmi napříč divizemi.",
+    desc: "Volání kámošům ze základky a falešná euforie nejsou cesta za úspěchem. Poradce v Bidli nehoní známé – pracuje s reálnými klienty a sdílenými příležitostmi napříč divizemi.",
     id: "kVDTNjhIRXU",
   },
   {
