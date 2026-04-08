@@ -30,14 +30,14 @@ export const metadata: Metadata = pageMeta({
 
 const features = [
   { icon: faUserTie, title: "Poradce vždy\nna prvním místě", desc: "Pomáháme vám růst ve vašem podnikání." },
-  { icon: faBriefcase, title: "Komplexní\nslužby", desc: "Finance, reality i energetika na jednom místě." },
+  { icon: faBriefcase, title: "Komplexní\nslužby", desc: "Finance, reality i energetika pod jednou střechou." },
   { icon: faLaptopCode, title: "Digitální\nnástroje", desc: "Efektivní správa financí, majetku i energií." },
   { icon: faUserCircle, title: "Klientská\nzóna", desc: "Vše o financích a majetku vašeho klienta na jednom místě." },
   { icon: faChalkboardTeacher, title: "Podpora analytika\na vzdělávací systém", desc: "Pomoc s finančním plánem a mentoring." },
   { icon: faMoneyCheckAlt, title: "Vlastní\nfinanční produkty", desc: "Navržené podle potřeb klientů." },
-  { icon: faBuilding, title: "Silné\nzázemí", desc: "Administrativní, marketingová a vzdělávací podpora." },
+  { icon: faBuilding, title: "Stabilní\nzázemí", desc: "Silná značka za zády + administrativní, marketingová a vzdělávací podpora." },
   { icon: faChartLine, title: "Atraktivní\nprovizní model", desc: "Neomezené výdělky a kariérní růst." },
-  { icon: faClock, title: "Flexibilita\na nezávislost", desc: "Řídíte si pracovní čas a klientelu." },
+  { icon: faClock, title: "Flexibilita\na nezávislost", desc: "Řídíte si sami pracovní dobu i klientelu." },
 ];
 
 const technologie = [
@@ -53,7 +53,7 @@ const kzFeatures = [
   "Rychlá evidence příjmů a výdajů",
   "Automatické odhalení podpojištění a hodnoty nemovitostí",
   "Neveřejné nabídky nemovitostí",
-  "Analýza spotřeby energií a cen",
+  "Analýza spotřeby a cen energií",
 ];
 
 const videosFilosofie = [
@@ -346,7 +346,7 @@ export default function FinancniSpecialista() {
             {/* Exclusive Club — velká karta vlevo, přes 2 řádky */}
             <div className="row-span-2 group rounded-3xl overflow-hidden relative shadow-sm hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/img/EC2.jpeg"
+                src="/img/EC2.jpg"
                 alt="Exclusive Club"
                 fill
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -387,7 +387,7 @@ export default function FinancniSpecialista() {
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#3fb1e1] mb-1">Program</span>
                 <h3 className="text-lg font-black text-white mb-2">Program Patriot</h3>
                 <p className="text-white/70 text-xs leading-relaxed">
-                  Exkluzivní skupina kolegů s dlouhodobě skvělými výsledky — s přímým podílem na rozvoji firmy.
+                  Exkluzivní skupina kolegů s dlouhodobě skvělými výsledky — s přímým podílem na rozvoji firmy. Za jejich přínos a výsledky jsou odměněni vyšší provizí a dalšími výhodami.
                 </p>
               </div>
             </div>

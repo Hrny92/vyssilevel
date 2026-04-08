@@ -18,10 +18,10 @@ interface Props {
 
 export function formatDatumTermin(datum: string): string {
   const d = new Date(datum);
-  const day = d.toLocaleDateString("cs-CZ", { day: "2-digit", timeZone: "Europe/Prague" });
-  const month = d.toLocaleDateString("cs-CZ", { month: "2-digit", timeZone: "Europe/Prague" });
-  const year = d.toLocaleDateString("cs-CZ", { year: "numeric", timeZone: "Europe/Prague" });
-  return `${day}. ${month}. ${year}`;
+  
+  
+  
+  return d.toLocaleDateString("cs-CZ", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "Europe/Prague" });
 }
 
 export default function KarierniSnidaneForm({ terminy, preselectedTermin }: Props) {

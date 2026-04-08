@@ -35,7 +35,7 @@ const features = [
   { icon: faUserPlus, title: "Moderní\nnáborová podpora", desc: "Nábor není jen na vás. Aktivně pomáháme s marketingovými kampaněmi, školením i adaptací nováčků." },
   { icon: faChartLine, title: "Minimum administrativy,\nmaximum obchodu", desc: "Analytické oddělení připraví finanční plány pro klienty vašeho týmu. Vy se věnujete lidem, obchodu a růstu." },
   { icon: faCoins, title: "Férové\na transparentní odměny", desc: "Naše provize patří mezi nejvyšší na trhu. Vaši lidé u nás mohou vydělávat víc — za stejnou práci, s lepší podporou." },
-  { icon: faArrowUp, title: "Lídři rostou\ns firmou", desc: "Budujeme s manažery. Pokud máte ambice, otevíráme vám dveře k dalším kariérním krokům. Tady růst nekončí." },
+  { icon: faArrowUp, title: "Lídři rostou\ns firmou", desc: "Budujeme manažery. Pokud máte ambice, otevíráme vám dveře k dalším kariérním krokům. Tady růst nekončí." },
 ];
 
 const technologie = [
@@ -51,7 +51,7 @@ const kzFeatures = [
   "Rychlá evidence příjmů a výdajů",
   "Automatické odhalení podpojištění a hodnoty nemovitostí",
   "Neveřejné nabídky nemovitostí",
-  "Analýza spotřeby energií a cen",
+  "Analýza spotřeby a cen energií",
 ];
 
 const videosFilosofie = [
@@ -106,7 +106,7 @@ export default function Manazer() {
           </div>
 
           {/* Bento grid — 4 cols, desktop */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[170px]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[210px]">
 
             {/* VIDEO — 2×2 */}
             <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-sm relative bg-black">
@@ -128,7 +128,7 @@ export default function Manazer() {
                 </div>
                 <div>
                   <p className="text-[#142f4c] font-bold text-sm leading-snug whitespace-pre-line">{f.title}</p>
-                  <p className="text-gray-400 text-xs mt-1 leading-relaxed line-clamp-2">{f.desc}</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -141,7 +141,7 @@ export default function Manazer() {
                 </div>
                 <div>
                   <p className="text-[#142f4c] font-bold text-sm leading-snug whitespace-pre-line">{f.title}</p>
-                  <p className="text-gray-400 text-xs mt-1 leading-relaxed line-clamp-2">{f.desc}</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -344,7 +344,7 @@ export default function Manazer() {
             {/* Exclusive Club — velká karta vlevo, přes 2 řádky */}
             <div className="row-span-2 group rounded-3xl overflow-hidden relative shadow-sm hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/img/EC2.jpeg"
+                src="/img/EC2.jpg"
                 alt="Exclusive Club"
                 fill
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -385,7 +385,7 @@ export default function Manazer() {
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#3fb1e1] mb-1">Program</span>
                 <h3 className="text-lg font-black text-white mb-2">Program Patriot</h3>
                 <p className="text-white/70 text-xs leading-relaxed">
-                  Exkluzivní skupina kolegů s dlouhodobě skvělými výsledky — s přímým podílem na rozvoji firmy.
+                  Exkluzivní skupina kolegů s dlouhodobě skvělými výsledky — s přímým podílem na rozvoji firmy. Za jejich přínos a výsledky jsou odměněni vyšší provizí a dalšími výhodami.
                 </p>
               </div>
             </div>
