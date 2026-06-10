@@ -286,7 +286,7 @@ export default async function OBidli() {
       {/* CTA */}
       <CtaBanner>
         <blockquote className="text-xl md:text-2xl font-semibold text-white/90 italic mb-4 leading-relaxed">
-          „V Bidli nehledáme průměr. Hledáme lidi, kteří chtějí růst a ukázat, co v nich skutečně je."
+          „Kazdy clovek ma svoj vyssi level."
         </blockquote>
         <p className="text-[#3fb1e1] font-bold mb-8">Marián Süttö, obchodní ředitel Bidli</p>
         <ContactButton className="btn-outline">
